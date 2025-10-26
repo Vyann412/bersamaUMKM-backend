@@ -12,37 +12,42 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::table('umkm')->insert([
-            [
-                'type' => 'Food',
-                'name' => 'Mamie D’Jempol',
-                'photoUrl' => 'https://image2url.com/images/1761484272356-f87f8f82-86a3-448b-90f5-44e938182d93.jpg',
-                'description' => 'Mamie D’Jempol adalah usaha UMKM yang berada di Silkwood, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
-                'latitude' => -6.22524,
-                'longitude' => 106.65086],
-
-            [
-                'type' => 'Food',
-                'name' => 'Bakso Gepeng Kiki',
-                'photoUrl' => 'https://image2url.com/images/1761485202600-0d901b85-6a25-4339-9b54-65c4015ae6ce.jpg',
-                'description' => 'Bakso Gepeng Kiki adalah usaha UMKM yang berada di Binus, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
-                'latitude' => -6.21942,
-                'longitude' => 106.64853],
-            [
-                'type' => 'Food',
-                'name' => 'Nara Kitchen',
-                'photoUrl' => 'https://image2url.com/images/1761485480498-f4b44bfc-311d-4bc7-88e8-2097309a96cd.jpg',
-                'description' => 'Nara Kitchen adalah usaha UMKM yang berada di Alfa Tower, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
-                'latitude' => -6.22572,
-                'longitude' => 106.65740],
-            [
-                'type' => 'Food',
-                'name' => 'Bakmi Kinara',
-                'photoUrl' => 'https://image2url.com/images/1761485664622-1a85c3b8-19ac-4d7b-9942-6202e258e909.jpg',
-                'description' => 'Bakmi Kinara adalah usaha UMKM yang berada di Binus, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
-                'latitude' => -6.21942,
-                'longitude' => 106.64853],
+        if (Schema::hasTable('umkm')) {
+            DB::table('umkm')->insert([
+                [
+                    'type' => 'Food',
+                    'name' => 'Mamie D’Jempol',
+                    'photoUrl' => 'https://image2url.com/images/1761484272356-f87f8f82-86a3-448b-90f5-44e938182d93.jpg',
+                    'description' => 'Mamie D’Jempol adalah usaha UMKM yang berada di Silkwood, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
+                    'latitude' => -6.22524,
+                    'longitude' => 106.65086,
+                ],
+                [
+                    'type' => 'Food',
+                    'name' => 'Bakso Gepeng Kiki',
+                    'photoUrl' => 'https://image2url.com/images/1761485202600-0d901b85-6a25-4339-9b54-65c4015ae6ce.jpg',
+                    'description' => 'Bakso Gepeng Kiki adalah usaha UMKM yang berada di Binus, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
+                    'latitude' => -6.21942,
+                    'longitude' => 106.64853,
+                ],
+                [
+                    'type' => 'Food',
+                    'name' => 'Nara Kitchen',
+                    'photoUrl' => 'https://image2url.com/images/1761485480498-f4b44bfc-311d-4bc7-88e8-2097309a96cd.jpg',
+                    'description' => 'Nara Kitchen adalah usaha UMKM yang berada di Alfa Tower, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
+                    'latitude' => -6.22572,
+                    'longitude' => 106.65740,
+                ],
+                [
+                    'type' => 'Food',
+                    'name' => 'Bakmi Kinara',
+                    'photoUrl' => 'https://image2url.com/images/1761485664622-1a85c3b8-19ac-4d7b-9942-6202e258e909.jpg',
+                    'description' => 'Bakmi Kinara adalah usaha UMKM yang berada di Binus, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
+                    'latitude' => -6.21942,
+                    'longitude' => 106.64853,
+                ],
             ]);
+        }
     }
 
     /**

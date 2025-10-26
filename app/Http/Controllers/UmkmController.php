@@ -1,6 +1,9 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
+use App\Models\Umkm;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
@@ -33,8 +36,8 @@ class UmkmController extends Controller{
         }
     }
 
-    public function getUmkmByType(Request $request, $type): JsonResponse{
-        $umkm = Umkm::where('type', $type)->get();
+    public function getUmkmByType($type): JsonResponse{
+        $umkm = Umkm::where('type', '=', $type)->get();
         if ($umkm) {
             return response()->json($umkm, 200);
         } else {
