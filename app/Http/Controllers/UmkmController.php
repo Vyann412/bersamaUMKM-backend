@@ -7,6 +7,7 @@ use Illuminate\Http\JsonResponse;
 class UmkmController extends Controller{
     public function insertUmkm(Request $request): JsonResponse{
         $umkm = new Umkm();
+        $umkm->type = $request->input('type');
         $umkm->name = $request->input('name');
         $umkm->photoUrl = $request->input('photoUrl');
         $umkm->description = $request->input('description');
@@ -25,6 +26,15 @@ class UmkmController extends Controller{
 
     public function getUmkmById(Request $request, $id): JsonResponse{
         $umkm = Umkm::find($id);
+        if ($umkm) {
+            return response()->json($umkm, 200);
+        } else {
+            return response()->json(['message' => 'UMKM not found'], 404);
+        }
+    }
+
+    public function getUmkmByType(Request $request, $type): JsonResponse{
+        $umkm = Umkm::where('type', $type)->get();
         if ($umkm) {
             return response()->json($umkm, 200);
         } else {

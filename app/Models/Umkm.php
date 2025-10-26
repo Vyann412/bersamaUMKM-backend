@@ -8,6 +8,7 @@ class Umkm extends Model
 
     protected $fillable = [
         'name',
+        'type',
         'photoUrl',
         'description',
         'latitude',
