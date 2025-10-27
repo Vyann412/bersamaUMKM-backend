@@ -37,8 +37,8 @@ class UmkmController extends Controller{
     }
 
     public function getUmkmByType($type): JsonResponse{
-        $umkm = Umkm::where('type', '=', $type)->get();
-        if ($umkm) {
+        $umkm = Umkm::where('type', $type)->get();
+        if ($umkm->isNotEmpty() && $umkm->count() > 0) {
             return response()->json($umkm, 200);
         } else {
             return response()->json(['message' => 'UMKM not found'], 404);

@@ -46,6 +46,30 @@ return new class extends Migration
                     'latitude' => -6.21942,
                     'longitude' => 106.64853,
                 ],
+                [
+                    'type'=> 'Food',
+                    'name' => 'Bakmi Kinara',
+                    'photoUrl' => 'https://image2url.com/images/1761485664622-1a85c3b8-19ac-4d7b-9942-6202e258e909.jpg',
+                    'description' => 'Bakmi Kinara adalah usaha UMKM yang berada di Binus, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
+                    'latitude' => -6.21942,
+                    'longitude' => 106.64853,
+                ],
+                                [
+                    'type'=> 'Food',
+                    'name' => 'Bakmi Kinara',
+                    'photoUrl' => 'https://image2url.com/images/1761485664622-1a85c3b8-19ac-4d7b-9942-6202e258e909.jpg',
+                    'description' => 'Bakmi Kinara adalah usaha UMKM yang berada di Binus, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
+                    'latitude' => -6.21942,
+                    'longitude' => 106.64853,
+                ],
+                [
+                    'type'=> 'Food',
+                    'name' => 'Bakmi Kinara',
+                    'photoUrl' => 'https://image2url.com/images/1761485664622-1a85c3b8-19ac-4d7b-9942-6202e258e909.jpg',
+                    'description' => 'Bakmi Kinara adalah usaha UMKM yang berada di Binus, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
+                    'latitude' => -6.21942,
+                    'longitude' => 106.64853,
+                    ]
             ]);
         }
     }
