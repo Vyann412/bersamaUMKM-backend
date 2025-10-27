@@ -18,25 +18,25 @@ class LocationController extends Controller{
 
        $url = $this->locationApi . 'lat=' . $latitude . '&lon=' . $longitude . '&format=json&zoom=18&addressdetails=1';
 
-Log::info("Fetching URL: $url");
+        Log::info("Fetching URL: $url");
 
-try {
-    $response = Http::withHeaders([
-        'User-Agent' => 'MIA2025-App/1.0'
-    ])->get($url);
+        try {
+            $response = Http::withHeaders([
+                'User-Agent' => 'MIA2025-App/1.0'
+            ])->get($url);
 
-    if ($response->successful()) {
-        $data = $response->json();
-        Log::info("OSM response: " . json_encode($data));
-        return response()->json(['location' => $data], 200);
-    } else {
-        Log::error("OSM request failed with status " . $response->status());
-        return response()->json(['error' => 'Failed to fetch location data'], 500);
-    }
-} catch (\Exception $e) {
-    Log::error("Exception: " . $e->getMessage());
-    return response()->json(['error' => 'Exception occurred'], 500);
-}
+            if ($response->successful()) {
+                $data = $response->json();
+                Log::info("OSM response: " . json_encode($data));
+                return response()->json(['location' => $data], 200);
+            } else {
+                Log::error("OSM request failed with status " . $response->status());
+                return response()->json(['error' => 'Failed to fetch location data'], 500);
+            }
+        } catch (\Exception $e) {
+            Log::error("Exception: " . $e->getMessage());
+            return response()->json(['error' => 'Exception occurred'], 500);
+        }
 
     }
 }

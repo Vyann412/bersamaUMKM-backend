@@ -19,9 +19,10 @@ return new class extends Migration
             $table->string('description');
             $table->decimal('latitude', 10, 7);
             $table->decimal('longitude', 10, 7);
+            $table->string('address');
             $table->unsignedBigInteger('userId')->nullable();
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
-            
+
             $table->timestamps();
         });
     }

@@ -14,6 +14,7 @@ class Umkm extends Model
         'description',
         'latitude',
         'longitude',
+        'address',
         'userId',
     ];
 }
