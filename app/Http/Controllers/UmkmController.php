@@ -27,7 +27,7 @@ class UmkmController extends Controller{
         return response()->json($umkm, 200);
     }
 
-    public function getUmkmById(Request $request, $id): JsonResponse{
+    public function getUmkmById($id): JsonResponse{
         $umkm = Umkm::find($id);
         if ($umkm) {
             return response()->json($umkm, 200);

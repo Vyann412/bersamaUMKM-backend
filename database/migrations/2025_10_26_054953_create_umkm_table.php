@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('latitude', 10, 7);
             $table->decimal('longitude', 10, 7);
             $table->string('address');
+            $table->decimal('rating', 3, 2)->nullable();
             $table->unsignedBigInteger('userId')->nullable();
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
 

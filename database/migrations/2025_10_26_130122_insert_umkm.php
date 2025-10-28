@@ -21,7 +21,8 @@ return new class extends Migration
                     'description' => 'Mamie D’Jempol adalah usaha UMKM yang berada di Silkwood, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
                     'latitude' => -6.22524,
                     'longitude' => 106.65086,
-                    'address' => 'Alam Sutera, Jl. Lingkar Barat, Panunggangan Timur, Kecamatan Pinang, Kota, Kota Tangerang, Banten 15143'
+                    'address' => 'Alam Sutera, Jl. Lingkar Barat, Panunggangan Timur, Kecamatan Pinang, Kota, Kota Tangerang, Banten 15143',
+                    'rating' => null
                 ],
                 [
                     'type' => 'Food',
@@ -30,7 +31,8 @@ return new class extends Migration
                     'description' => 'Bakso Gepeng Kiki adalah usaha UMKM yang berada di Binus, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
                     'latitude' => -6.21942,
                     'longitude' => 106.64853,
-                    'address' => 'Alam Sutera, Binus University Alam Sutera'
+                    'address' => 'Alam Sutera, Binus University Alam Sutera',
+                    'rating' => null
                 ],
                 [
                     'type' => 'Food',
@@ -39,7 +41,8 @@ return new class extends Migration
                     'description' => 'Nara Kitchen adalah usaha UMKM yang berada di Alfa Tower, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
                     'latitude' => -6.22572,
                     'longitude' => 106.65740,
-                    'address' => 'Alfa Tower, Alam Sutera, Tangerang'
+                    'address' => 'Alfa Tower, Alam Sutera, Tangerang',
+                    'rating' => null
                 ],
                 [
                     'type' => 'Food',
@@ -48,7 +51,8 @@ return new class extends Migration
                     'description' => 'Bakmi Kinara adalah usaha UMKM yang berada di Binus, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
                     'latitude' => -6.21942,
                     'longitude' => 106.64853,
-                    'address' => 'Alam Sutera, Binus University Alam Sutera'
+                    'address' => 'Alam Sutera, Binus University Alam Sutera',
+                    'rating' => null
                 ],
                 [
                     'type'=> 'Food',
@@ -57,7 +61,8 @@ return new class extends Migration
                     'description' => 'Bakmi Kinara adalah usaha UMKM yang berada di Binus, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
                     'latitude' => -6.21942,
                     'longitude' => 106.64853,
-                    'address' => 'Alam Sutera, Binus University Alam Sutera'
+                    'address' => 'Alam Sutera, Binus University Alam Sutera',
+                    'rating' => null
                 ],
                                 [
                     'type'=> 'Food',
@@ -67,6 +72,7 @@ return new class extends Migration
                     'latitude' => -6.21942,
                     'longitude' => 106.64853,
                     'address' => 'Jl. Jalur Sutera No.Kav. 15, Pakualam, Kec. Serpong Utara, Kota Tangerang Selatan, Banten 15325',
+                    'rating'=> null
                 ],
                 [
                     'type'=> 'Food',
@@ -75,7 +81,8 @@ return new class extends Migration
                     'description' => 'Bakmi Kinara adalah usaha UMKM yang berada di Binus, Alam Sutera, Tangerang. Usaha ini bergerak di bidang kuliner',
                     'latitude' => -6.21942,
                     'longitude' => 106.64853,
-                    'address' => 'Alam Sutera, Binus University Alam Sutera'
+                    'address' => 'Alam Sutera, Binus University Alam Sutera',
+                    'rating' => null
                 ]
             ]);
         }
