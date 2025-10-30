@@ -12,8 +12,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (Schema::hasTable('umkm')) {
-            DB::table('umkm')->insert([
+        if (Schema::hasTable('umkms')) {
+            DB::table('umkms')->insert([
                 [
                     'type' => 'Food',
                     'name' => 'Mamie D’Jempol',
