@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Umkm;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -138,7 +139,7 @@ class SearchController extends Controller
     }
 
     private function filterUmkmProducts(array $filters) {
-        $query = \App\Models\Product::query()
+        $query = Umkm::query()
             ->select('products.*', 'umkms.name as umkm_name', 'umkms.address', 'umkms.latitude', 'umkms.longitude', 'umkms.rating')
             ->join('umkms', 'products.umkmId', '=', 'umkms.id');
 
@@ -193,7 +194,7 @@ class SearchController extends Controller
     }
 
     private function filterUmkms(array $filters){
-        $query = \App\Models\Umkm::query();
+        $query = Umkm::query();
 
         if (!empty($filters['category'])) {
             $query->where('type', 'LIKE', '%' . $filters['category'] . '%');
