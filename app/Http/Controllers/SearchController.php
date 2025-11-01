@@ -3,6 +3,7 @@
     namespace App\Http\Controllers;
 
     use App\Http\Controllers\Controller;
+    use App\Models\Product;
     use App\Models\Umkm;
     use Illuminate\Support\Facades\Http;
     use Illuminate\Http\Request;
@@ -43,16 +44,17 @@
             ---
 
             Aturan tambahan:
-            - Jika pengguna menyebut “dekat saya”, “sekitar sini”, “terdekat”, atau “sekitar saya”, maka "near_me": true dan "location": null.
-            - Jika pengguna menyebut kota atau daerah tertentu (misalnya “Bandung” atau “Jakarta”), maka "location" diisi dengan nama kota tersebut dan "near_me": false.
-            - Jika input berisi nama usaha, restoran, atau kata seperti “warung”, “toko”, “tempat makan”, “kafe”, “resto”, “rumah makan”, maka "search_target": "umkm" dan "category" diset sesuai konteks (misalnya "Food" untuk tempat makan, "Fashion" untuk toko pakaian).
-            - Jangan pecah frasa umum seperti “tempat makan” menjadi ["tempat", "makan"]. Gunakan "category": "Food" dan biarkan "keywords": null kecuali ada nama usaha spesifik.
-            - Jika input berisi kata-kata yang mengacu pada produk (misalnya “sepatu”, “baju”, “makanan ringan”, “minuman”), maka "search_target": "product" dan "category" diset sesuai konteks.
             - Perbaiki ejaan nama jika ada kesalahan ketik terutama pada nama lokasi dan nama usaha serta nama produk
                 Contoh koreksi ejaan:
                 - "bakmi alam sitera" → "Bakmi Alam Sutera"
                 - "jakrta" → "Jakarta"
                 - "bandong" → "Bandung"
+            - Jika pengguna menyebut “dekat saya”, “sekitar sini”, “terdekat”, atau “sekitar saya”, maka "near_me": true dan "location": null.
+            - Jika pengguna menyebut kota atau daerah tertentu (misalnya “Bandung” atau “Jakarta”), maka "location" diisi dengan nama kota tersebut dan "near_me": false.
+            - Jika input berisi nama usaha, restoran, atau kata seperti “warung”, “toko”, “tempat makan”, “kafe”, “resto”, “rumah makan”, maka "search_target": "umkm" dan "category" diset sesuai konteks (misalnya "Food" untuk tempat makan, "Fashion" untuk toko pakaian).
+            - Jangan pecah frasa umum seperti “tempat makan” menjadi ["tempat", "makan"]. Gunakan "category": "Food" dan biarkan "keywords": null kecuali ada nama usaha spesifik.
+            - Jika input berisi kata-kata yang mengacu pada produk (misalnya “sepatu”, “baju”, “makanan ringan”, “minuman”), maka "search_target": "product" dan "category" diset sesuai konteks.
+
 
 
 
@@ -157,9 +159,9 @@
 
 
         private function filterUmkmProducts(array $filters) {
-            $query = Umkm::query()
-                ->select('products.*', 'umkms.name as umkm_name', 'umkms.address', 'umkms.latitude', 'umkms.longitude', 'umkms.rating')
-                ->join('umkms', 'products.umkmId', '=', 'umkms.id');
+        $query = Product::query()
+            ->select('products.*', 'umkms.name as umkm_name', 'umkms.address', 'umkms.latitude', 'umkms.longitude', 'umkms.rating')
+            ->join('umkms', 'products.umkmId', '=', 'umkms.id');
 
             if (!empty($filters['category'])) {
                 $query->where('products.category', 'LIKE', '%' . $filters['category'] . '%');

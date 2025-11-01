@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Log;
 
 class ProductController extends Controller{
     public function getProductsByUmkmId($umkmId){
         $product = Product::where('umkmId', $umkmId)->get();
+
         if($product){
             return response()->json($product, 200);
         } else {
