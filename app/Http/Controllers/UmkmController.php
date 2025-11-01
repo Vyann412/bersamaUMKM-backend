@@ -23,8 +23,12 @@ class UmkmController extends Controller{
     }
 
     public function getAllUmkm(Request $request): JsonResponse{
-        $umkm = Umkm::all();
-        return response()->json($umkm, 200);
+        try {
+            $data = Umkm::all();
+            return response()->json($data);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+    }
     }
 
     public function getUmkmById($id): JsonResponse{
