@@ -13,3 +13,4 @@ Route::post('/location/from/coordinates', [LocationController::class,'convertLoc
 Route::get('/search/by/query', [SearchController::class,'searchWithQuery']);
 Route::get('/search/by/keyword', [SearchController::class,'searchByKeyword']);
 Route::get('/product/get/by/umkmId/{id}', [ProductController::class,'getProductsByUmkmId']);
+Route::get('/product/get/umkmName/{id}', [ProductController::class,'getUmkmNameByProductId']);

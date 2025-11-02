@@ -16,5 +16,23 @@ class ProductController extends Controller{
         }
     }
 
+    public function getUmkmNameByProductId($productId){
+        $product = Product::select('products.id', 'umkms.name as umkm_name')
+            ->join('umkms', 'products.umkmId', '=', 'umkms.id')
+            ->where('products.id', $productId)
+            ->first();
+
+        if (!$product) {
+            return response()->json([
+                'message' => 'Product not found.'
+            ], 404);
+        }
+
+        return response()->json([
+            'product_id' => $product->id,
+            'umkm_name' => $product->umkm_name
+        ], 200);
+    }
+
 
 }

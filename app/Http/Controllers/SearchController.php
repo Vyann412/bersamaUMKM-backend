@@ -52,6 +52,7 @@
             - pahami konteks pencarian berdasarkan kata kunci yang diberikan pengguna.
             - urai bentuk kata singkatan menjadi bentuk lengkapnya, contoh: "alsut" menjadi "Alam Sutera"
             - Jika pengguna menyebut “dekat saya”, “sekitar sini”, “terdekat”, atau “sekitar saya”, maka "near_me": true dan "location": null.
+            - jika pengguna menyebutkan kata-kata seperti “di sekitar [lokasi]”, “dekat [lokasi]”, atau “sekitar [lokasi]”, maka "location" diisi dengan nama lokasi tersebut dan "near_me": false.
             - Jika pengguna menyebut kota atau daerah tertentu (misalnya “Bandung” atau “Jakarta”), maka "location" diisi dengan nama kota tersebut dan "near_me": false.
             - Jika input berisi nama usaha, restoran, atau kata seperti “warung”, “toko”, “tempat makan”, “kafe”, “resto”, “rumah makan”, maka "search_target": "umkm" dan "category" diset sesuai konteks (misalnya "Food" untuk tempat makan, "Fashion" untuk toko pakaian).
             - Jangan pecah frasa umum seperti “tempat makan” menjadi ["tempat", "makan"]. Gunakan "category": "Food" dan biarkan "keywords": null kecuali ada nama usaha spesifik.
@@ -60,6 +61,7 @@
                 - "cari makanan enak di sekitar sini" → "keywords": []
                 - "toko baju murah di bandung" → "keywords": []
                 - "tempat nongkrong asik" → "keywords": []
+            - buat keyword semuanya lowercase.
 
 
 
@@ -182,12 +184,13 @@
             if (!empty($filters['keywords'])) {
                 $query->where(function ($q) use ($filters) {
                     foreach ($filters['keywords'] as $word) {
-                        $q->orWhere('products.name', 'LIKE', '%' . $word . '%')
-                        ->orWhere('products.description', 'LIKE', '%' . $word . '%');
+                        $q->where(function($subQuery) use ($word) {
+                            $subQuery->where('products.name', 'LIKE', '%' . $word . '%')
+                                    ->orWhere('products.description', 'LIKE', '%' . $word . '%');
+                        });
                     }
                 });
             }
-
             if (!empty($filters['location'])) {
                 $query->where('umkms.address', 'LIKE', '%' . $filters['location'] . '%');
             }
@@ -213,9 +216,20 @@
 
 
             $query->orderBy('products.price', 'asc');
+                Log::info('Final SQL Query', [
+        'sql' => $query->toSql(),
+        'bindings' => $query->getBindings(),
+        'filters' => $filters
+    ]);
 
+    $results = $query->get();
 
-            return $query->get();
+    Log::info('Query Results', [
+        'count' => $results->count(),
+        'data' => $results->toArray()
+    ]);
+
+            return $results;
         }
 
         private function filterUmkms(array $filters){
@@ -228,6 +242,7 @@
             if (!empty($filters['keywords'])) {
                 $query->where(function ($q) use ($filters) {
                     foreach ($filters['keywords'] as $word) {
+                        $lowerWord = strtolower($word);
                         $q->orWhere('name', 'LIKE', '%' . $word . '%')
                             ->orWhere('description', 'LIKE', '%' . $word . '%')
                             ->orWhere('address', 'LIKE', '%' . $word . '%');
