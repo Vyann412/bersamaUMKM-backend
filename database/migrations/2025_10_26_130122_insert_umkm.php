@@ -85,7 +85,7 @@ return new class extends Migration
                     'rating' => null
                 ],
                 [
-                    'type'=> 'Drink',
+                    'type'=> 'Drinks',
                     'name' => 'Koffielogik',
                     'photoUrl' => 'https://image2url.com/images/1762062647182-609da39f-d769-402a-8e17-37192605c8c6.png',
                     'description' => 'Koffielogik adalah usaha UMKM yang berada di Senayan. Usaha ini bergerak di bidang beverage',
@@ -95,7 +95,7 @@ return new class extends Migration
                     'rating' => null
                 ],
                 [
-                    'type'=> 'Drink',
+                    'type'=> 'Drinks',
                     'name' => 'Es Kode',
                     'photoUrl' => 'https://image2url.com/images/1762062919097-1e201089-49fd-4691-86de-804ba78d74ef.png',
                     'description' => 'Es Kode adalah usaha UMKM yang berada di Sukasari, Tangerang. Usaha ini bergerak di bidang beverage',
