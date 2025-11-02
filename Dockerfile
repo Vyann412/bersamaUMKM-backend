@@ -21,7 +21,7 @@ RUN composer install \
 ################################################################################
 # Stage 2: Final runtime image
 ################################################################################
-FROM php:8.2-apache as final
+FROM php:8.3-apache as final
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
