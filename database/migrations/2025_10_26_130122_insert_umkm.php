@@ -83,7 +83,47 @@ return new class extends Migration
                     'longitude' => 106.64853,
                     'address' => 'Alam Sutera, Binus University Alam Sutera',
                     'rating' => null
-                ]
+                ],
+                [
+                    'type'=> 'Drink',
+                    'name' => 'Koffielogik',
+                    'photoUrl' => 'https://image2url.com/images/1762062647182-609da39f-d769-402a-8e17-37192605c8c6.png',
+                    'description' => 'Koffielogik adalah usaha UMKM yang berada di Senayan. Usaha ini bergerak di bidang beverage',
+                    'latitude' => -6.228630821769731,
+                    'longitude' => 106.79682898313187,
+                    'address' => 'Senayan, Tanah Abang, Jakarta Pusat',
+                    'rating' => null
+                ],
+                [
+                    'type'=> 'Drink',
+                    'name' => 'Es Kode',
+                    'photoUrl' => 'https://image2url.com/images/1762062919097-1e201089-49fd-4691-86de-804ba78d74ef.png',
+                    'description' => 'Es Kode adalah usaha UMKM yang berada di Sukasari, Tangerang. Usaha ini bergerak di bidang beverage',
+                    'latitude' => -6.1843795347430675,
+                    'longitude' => 106.63446208128136,
+                    'address' => 'Jl. Kh. Soleh Ali No.109, RT.004/RW.011, Sukasari, Kec. Tangerang, Kota Tangerang, Banten 15118',
+                    'rating' => null
+                ],
+                [
+                    'type'=> 'Service',
+                    'name' => 'Barbar Barbershop',
+                    'photoUrl' => 'https://image2url.com/images/1762063148629-cb17e0f0-9d09-439d-999b-0b13ec4f63d9.png',
+                    'description' => 'Barbar Barbershop adalah usaha UMKM yang berada di Rajawati, Jakarta Selatan. Usaha ini bergerak di bidang jasa potong rambut',
+                    'latitude' => -6.257545356144587,
+                    'longitude' => 106.85089322513514,
+                    'address' => 'Apartment Kalibata City Tower Nusa Indah, Rawajati, Kec. Pancoran, Kota Jakarta Selatan',
+                    'rating' => null
+                ],
+                [
+                    'type'=> 'Service',
+                    'name' => 'Salon Smooch Beauty Bar',
+                    'photoUrl' => 'https://image2url.com/images/1762063534725-4a846b3f-28db-493f-a1af-a5502d1e227a.png',
+                    'description' => 'Salon Smooch Beauty Bar adalah usaha UMKM yang berada di Alam Sutera, Tangerang Selatan. Usaha ini bergerak di bidang jasa salon kecantikan',
+                    'latitude' => -6.238409906294591,
+                    'longitude' => 106.65183414232847,
+                    'address' => 'Perumahan Alam Sutera, Komp. RUKO CRYSTAL 8, Pakualam, Kec. Serpong Utara, Kota Tangerang Selatan, Banten 15320',
+                    'rating' => null
+                ],
             ]);
         }
     }
