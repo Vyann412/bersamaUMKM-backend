@@ -1,12 +1,16 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
+use App\Models\Umkm;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
 class UmkmController extends Controller{
     public function insertUmkm(Request $request): JsonResponse{
         $umkm = new Umkm();
+        $umkm->type = $request->input('type');
         $umkm->name = $request->input('name');
         $umkm->photoUrl = $request->input('photoUrl');
         $umkm->description = $request->input('description');
@@ -19,13 +23,26 @@ class UmkmController extends Controller{
     }
 
     public function getAllUmkm(Request $request): JsonResponse{
-        $umkm = Umkm::all();
-        return response()->json($umkm, 200);
+        try {
+            $data = Umkm::all();
+            return response()->json($data);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+    }
     }
 
-    public function getUmkmById(Request $request, $id): JsonResponse{
+    public function getUmkmById($id): JsonResponse{
         $umkm = Umkm::find($id);
         if ($umkm) {
+            return response()->json($umkm, 200);
+        } else {
+            return response()->json(['message' => 'UMKM not found'], 404);
+        }
+    }
+
+    public function getUmkmByType($type): JsonResponse{
+        $umkm = Umkm::where('type', $type)->get();
+        if ($umkm->isNotEmpty() && $umkm->count() > 0) {
             return response()->json($umkm, 200);
         } else {
             return response()->json(['message' => 'UMKM not found'], 404);
