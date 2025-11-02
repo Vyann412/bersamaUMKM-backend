@@ -49,12 +49,17 @@
                 - "bakmi alam sitera" → "Bakmi Alam Sutera"
                 - "jakrta" → "Jakarta"
                 - "bandong" → "Bandung"
+            - pahami konteks pencarian berdasarkan kata kunci yang diberikan pengguna.
+            - urai bentuk kata singkatan menjadi bentuk lengkapnya, contoh: "alsut" menjadi "Alam Sutera"
             - Jika pengguna menyebut “dekat saya”, “sekitar sini”, “terdekat”, atau “sekitar saya”, maka "near_me": true dan "location": null.
             - Jika pengguna menyebut kota atau daerah tertentu (misalnya “Bandung” atau “Jakarta”), maka "location" diisi dengan nama kota tersebut dan "near_me": false.
             - Jika input berisi nama usaha, restoran, atau kata seperti “warung”, “toko”, “tempat makan”, “kafe”, “resto”, “rumah makan”, maka "search_target": "umkm" dan "category" diset sesuai konteks (misalnya "Food" untuk tempat makan, "Fashion" untuk toko pakaian).
             - Jangan pecah frasa umum seperti “tempat makan” menjadi ["tempat", "makan"]. Gunakan "category": "Food" dan biarkan "keywords": null kecuali ada nama usaha spesifik.
             - Jika input berisi kata-kata yang mengacu pada produk (misalnya “sepatu”, “baju”, “makanan ringan”, “minuman”), maka "search_target": "product" dan "category" diset sesuai konteks.
-
+            - kalau pencarian tidak spesifik maka kosongkan keyword, contoh:
+                - "cari makanan enak di sekitar sini" → "keywords": []
+                - "toko baju murah di bandung" → "keywords": []
+                - "tempat nongkrong asik" → "keywords": []
 
 
 
